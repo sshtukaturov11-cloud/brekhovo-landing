@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Денис Штукатуров — Продюсер</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent-1: #a855f7;
+    --accent-2: #6366f1;
+    --accent-3: #ec4899;
+    --glow: rgba(168, 85, 247, 0.4);
+    --card-bg: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  html, body {
+    height: 100%;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── Canvas background ── */
+  #canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ── Layout ── */
+  .scene {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 3rem 2.5rem 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow:
+      0 0 0 1px rgba(168,85,247,0.12),
+      0 24px 80px rgba(0,0,0,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.07);
+    animation: cardIn 0.9s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ── Avatar ring ── */
+  .avatar-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.6rem;
+  }
+
+  .avatar-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));
+    animation: spin 4s linear infinite;
+    z-index: 0;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .avatar-ring::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: #111;
+  }
+
+  .avatar {
+    position: relative;
+    z-index: 1;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d2b55 100%);
+    box-shadow: 0 0 40px var(--glow);
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.5s ease;
+  }
+
+  .avatar-wrap:hover .avatar img {
+    transform: scale(1.08);
+  }
+
+  /* ── Name ── */
+  .name {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent-1) 50%, var(--accent-3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    position: relative;
+    animation: nameIn 1s 0.3s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .name-glow {
+    position: absolute;
+    inset: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    background: linear-gradient(135deg, transparent 0%, var(--accent-1) 50%, var(--accent-3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(12px);
+    opacity: 0.5;
+    pointer-events: none;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+  @keyframes nameIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Role ── */
+  .role {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    animation: nameIn 1s 0.45s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    margin: 1.8rem auto;
+    height: 1px;
+    width: 60%;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  /* ── Tags ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    animation: nameIn 1s 0.55s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(168,85,247,0.25);
+    color: rgba(168,85,247,0.85);
+    background: rgba(168,85,247,0.07);
+    transition: all 0.25s;
+    cursor: default;
+  }
+
+  .tag:hover {
+    border-color: rgba(168,85,247,0.6);
+    background: rgba(168,85,247,0.15);
+    color: #c084fc;
+    transform: translateY(-1px);
+  }
+
+  /* ── Socials ── */
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    animation: nameIn 1s 0.65s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .social-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hover-bg, rgba(168,85,247,0.15));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .social-link:hover {
+    border-color: var(--hover-border, rgba(168,85,247,0.5));
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 24px var(--hover-shadow, rgba(168,85,247,0.3));
+  }
+
+  .social-link:hover::before { opacity: 1; }
+
+  .social-link svg {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  .social-link:hover svg { transform: scale(1.15); }
+
+  /* individual tints */
+  .sl-telegram {
+    --hover-bg: rgba(41,182,246,0.12);
+    --hover-border: rgba(41,182,246,0.45);
+    --hover-shadow: rgba(41,182,246,0.25);
+  }
+  .sl-instagram {
+    --hover-bg: rgba(236,72,153,0.12);
+    --hover-border: rgba(236,72,153,0.45);
+    --hover-shadow: rgba(236,72,153,0.25);
+  }
+  .sl-youtube {
+    --hover-bg: rgba(239,68,68,0.12);
+    --hover-border: rgba(239,68,68,0.45);
+    --hover-shadow: rgba(239,68,68,0.25);
+  }
+  .sl-vk {
+    --hover-bg: rgba(100,149,237,0.12);
+    --hover-border: rgba(100,149,237,0.45);
+    --hover-shadow: rgba(100,149,237,0.25);
+  }
+
+  /* ── CTA button ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-1) 50%, var(--accent-3) 100%);
+    background-size: 200% 200%;
+    animation:
+      nameIn 1s 0.75s cubic-bezier(0.22,1,0.36,1) both,
+      gradShift 4s ease infinite;
+    box-shadow: 0 0 0 0 var(--glow);
+    transition:
+      transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+      box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @keyframes gradShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(168,85,247,0.5), 0 0 0 2px rgba(168,85,247,0.3);
+  }
+
+  .btn:active { transform: scale(0.98); }
+
+  .btn-icon { flex-shrink: 0; }
+
+  /* ── Footer note ── */
+  .footnote {
+    margin-top: 1.4rem;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.04em;
+    animation: nameIn 1s 0.85s both;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 480px) {
+    .card { padding: 2.2rem 1.4rem 2rem; border-radius: 22px; }
+    .avatar { width: 96px; height: 96px; }
+    .social-link { width: 46px; height: 46px; border-radius: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<div class="scene">
+  <div class="card">
+
+    <!-- Avatar -->
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar">
+        <img src="photo_2026-05-12_08-41-19.jpg" alt="Денис Штукатуров">
+      </div>
+    </div>
+
+    <!-- Name -->
+    <div style="position:relative; display:inline-block;">
+      <h1 class="name">Денис Штукатуров</h1>
+      <div class="name-glow" aria-hidden="true">Денис Штукатуров</div>
+    </div>
+
+    <!-- Role -->
+    <p class="role">Продюсер</p>
+
+    <div class="divider"></div>
+
+    <!-- Tags -->
+    <div class="tags">
+      <span class="tag">Видеопродакшн</span>
+      <span class="tag">Контент</span>
+      <span class="tag">Стратегия</span>
+      <span class="tag">Бренды</span>
+    </div>
+
+    <!-- Socials -->
+    <div class="socials">
+
+      <!-- Telegram -->
+      <a class="social-link sl-telegram" href="https://t.me/DenisShtuk" target="_blank" rel="noopener" title="Telegram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20.665 3.717L2.93 10.646c-1.19.477-1.183 1.14-.217 1.434l4.54 1.418 10.516-6.63c.496-.3.95-.14.577.19l-8.52 7.689-.332 4.69c.487 0 .703-.223.975-.487l2.34-2.274 4.87 3.597c.897.495 1.54.24 1.765-.833l3.19-15.03c.33-1.32-.503-1.918-1.968-1.293z" fill="#29b6f6"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a class="social-link sl-instagram" href="#" target="_blank" rel="noopener" title="Instagram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="6" stroke="url(#ig-grad)" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.5" stroke="url(#ig-grad)" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="#ec4899"/>
+          <defs>
+            <linearGradient id="ig-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f9a825"/>
+              <stop offset="0.5" stop-color="#ec4899"/>
+              <stop offset="1" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+
+      <!-- YouTube -->
+      <a class="social-link sl-youtube" href="#" target="_blank" rel="noopener" title="YouTube">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="5" width="20" height="14" rx="4" fill="#ef4444"/>
+          <path d="M10 9l6 3-6 3V9z" fill="#fff"/>
+        </svg>
+      </a>
+
+      <!-- VK -->
+      <a class="social-link sl-vk" href="#" target="_blank" rel="noopener" title="VK">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="6" fill="#6495ED"/>
+          <path d="M13.94 16.5h1.44s.43-.05.65-.29c.2-.22.19-.63.19-.63s-.03-1.93.87-2.22c.88-.28 2.02 1.87 3.22 2.7.91.62 1.6.48 1.6.48l3.22-.04s1.68-.1.88-1.43c-.07-.1-.48-.99-2.45-2.81-2.07-1.9-1.79-1.59.7-4.87 1.51-2.01 2.11-3.24 1.92-3.76-.18-.5-1.3-.37-1.3-.37l-3.63.02s-.27-.04-.47.08c-.2.11-.32.38-.32.38s-.59 1.56-1.37 2.89c-1.65 2.8-2.31 2.95-2.58 2.78-.63-.4-.47-1.63-.47-2.5 0-2.72.41-3.85-.8-4.14-.4-.1-.7-.16-1.73-.17-1.32-.01-2.44.01-3.07.31-.42.2-.74.65-.54.67.24.03.8.15 1.09.54.38.5.37 1.62.37 1.62s.22 3.2-.51 3.6c-.5.27-1.18-.28-2.65-2.82-.75-1.3-1.32-2.74-1.32-2.74s-.11-.26-.3-.4c-.24-.17-.56-.22-.56-.22L2.9 7.5s-.5.01-.68.23c-.16.2-.01.6-.01.6s2.52 5.9 5.38 8.87c2.62 2.72 5.6 2.54 5.6 2.54h1.35z" fill="white"/>
+        </svg>
+      </a>
+
+    </div>
+
+    <!-- CTA -->
+    <a class="btn" href="https://t.me/DenisShtuk" target="_blank" rel="noopener">
+      <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M20.665 3.717L2.93 10.646c-1.19.477-1.183 1.14-.217 1.434l4.54 1.418 10.516-6.63c.496-.3.95-.14.577.19l-8.52 7.689-.332 4.69c.487 0 .703-.223.975-.487l2.34-2.274 4.87 3.597c.897.495 1.54.24 1.765-.833l3.19-15.03c.33-1.32-.503-1.918-1.968-1.293z" fill="white"/>
+      </svg>
+      Написать мне
+    </a>
+
+    <p class="footnote">@DenisShtuk · Telegram</p>
+
+  </div>
+</div>
+
+<script>
+// ── Particle canvas ──────────────────────────────────────────────
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+let W, H, particles = [];
+
+const COLORS = ['#a855f7','#6366f1','#ec4899','#8b5cf6'];
+
+function resize() {
+  W = canvas.width  = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+  constructor() { this.reset(true); }
+  reset(init) {
+    this.x  = Math.random() * W;
+    this.y  = init ? Math.random() * H : H + 10;
+    this.r  = Math.random() * 1.5 + 0.3;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = -(Math.random() * 0.5 + 0.1);
+    this.alpha = Math.random() * 0.6 + 0.1;
+    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.y < -10) this.reset(false);
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.globalAlpha = this.alpha;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+}
+
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+function loop() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(loop);
+}
+loop();
+
+// ── Mouse parallax ───────────────────────────────────────────────
+const card = document.querySelector('.card');
+let mx = 0, my = 0, cx = 0, cy = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = (e.clientX / window.innerWidth  - 0.5) * 18;
+  my = (e.clientY / window.innerHeight - 0.5) * 18;
+});
+
+(function tilt() {
+  cx += (mx - cx) * 0.08;
+  cy += (my - cy) * 0.08;
+  card.style.transform = `perspective(900px) rotateY(${cx}deg) rotateX(${-cy}deg)`;
+  requestAnimationFrame(tilt);
+})();
+
+document.querySelector('.scene').addEventListener('mouseleave', () => {
+  mx = 0; my = 0;
+});
+
+// ── Touch parallax ───────────────────────────────────────────────
+document.addEventListener('touchmove', e => {
+  const t = e.touches[0];
+  mx = (t.clientX / window.innerWidth  - 0.5) * 10;
+  my = (t.clientY / window.innerHeight - 0.5) * 10;
+}, { passive: true });
+document.addEventListener('touchend', () => { mx = 0; my = 0; });
+</script>
+</body>
+</html>

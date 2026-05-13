@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Брехово — загородный дом 245 м² · MIM design</title>
+<meta name="description" content="Одноэтажный дизайнерский дом 245 м² в современном стиле. Автор проекта — архитектор Илья Макотинский, MIM design." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Cormorant+Garamond:wght@300;400;500&family=Allura&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-0:#23292e;
+    --bg-1:#2c343a;
+    --bg-2:#363f45;
+    --line:rgba(220,222,220,0.14);
+    --ink:#e9e7e0;
+    --ink-mute:#a9adac;
+    --ink-soft:#8a8e8d;
+    --gold:#c7a575;
+    --gold-soft:#a98b5d;
+    --max:1240px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg-0);
+    color:var(--ink);
+    font-family:'Jost',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-weight:300;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+
+  /* ====== Top bar ====== */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 32px;
+    background:linear-gradient(to bottom,rgba(35,41,46,.78),rgba(35,41,46,0));
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  .brand{font-family:'Jost',sans-serif;font-weight:300;font-size:18px;letter-spacing:.32em;color:var(--ink)}
+  .brand b{font-weight:400}
+  .brand span{font-weight:200;color:var(--ink-mute);margin-left:6px}
+  .topbar .meta{font-size:12px;letter-spacing:.28em;color:var(--ink-soft);text-transform:uppercase}
+
+  /* ====== Hero ====== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+    background:#0f1216;
+  }
+  .hero__bg{
+    position:absolute;inset:0;
+    background:#0f1216 url('images/web/hero.jpg') center/cover no-repeat;
+    transform:scale(1.04);
+    animation:slowZoom 18s var(--ease) forwards;
+  }
+  @keyframes slowZoom{to{transform:scale(1)}}
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(to top,rgba(20,24,27,.92) 0%,rgba(20,24,27,.55) 35%,rgba(20,24,27,.18) 60%,rgba(20,24,27,.4) 100%),
+      radial-gradient(120% 80% at 80% 10%,rgba(0,0,0,0) 30%,rgba(0,0,0,.45) 100%);
+    pointer-events:none;
+  }
+  .hero__inner{
+    position:relative;z-index:2;
+    width:100%;max-width:var(--max);
+    margin:0 auto;padding:0 32px 80px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:14px;
+    font-size:12px;letter-spacing:.36em;text-transform:uppercase;
+    color:var(--ink-mute);margin-bottom:28px;
+  }
+  .eyebrow::before{content:"";width:42px;height:1px;background:var(--gold)}
+  .hero h1{
+    font-family:'Jost',sans-serif;font-weight:200;
+    font-size:clamp(56px,11vw,180px);
+    line-height:.92;letter-spacing:.08em;
+    color:#f4f1ea;
+    text-shadow:0 4px 30px rgba(0,0,0,.4);
+  }
+  .hero h1 .small{
+    display:block;
+    font-size:clamp(14px,1.8vw,24px);
+    letter-spacing:.46em;
+    color:var(--ink-mute);
+    margin-top:18px;
+    font-weight:300;
+  }
+  .hero__cursive{
+    margin-top:28px;
+    font-family:'Allura',cursive;
+    font-size:clamp(28px,4vw,46px);
+    color:var(--gold);
+    line-height:1;
+  }
+  .hero__scroll{
+    position:absolute;left:50%;bottom:24px;transform:translateX(-50%);
+    z-index:3;
+    font-size:11px;letter-spacing:.32em;color:var(--ink-soft);
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .hero__scroll .line{
+    width:1px;height:54px;background:var(--ink-soft);
+    overflow:hidden;position:relative;
+  }
+  .hero__scroll .line::after{
+    content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;
+    background:var(--gold);animation:scrollLine 2.2s infinite var(--ease);
+  }
+  @keyframes scrollLine{
+    0%{top:-100%}60%{top:100%}100%{top:100%}
+  }
+
+  /* ====== Section ====== */
+  section{padding:110px 0;position:relative}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+  .rule{height:1px;background:var(--line);max-width:var(--max);margin:0 auto}
+
+  .section-title{
+    font-family:'Jost',sans-serif;font-weight:200;
+    font-size:clamp(28px,3.2vw,46px);
+    letter-spacing:.22em;text-transform:uppercase;
+    color:#efece5;
+    margin-bottom:18px;
+  }
+  .section-sub{
+    color:var(--ink-mute);
+    font-size:14px;letter-spacing:.34em;text-transform:uppercase;
+    margin-bottom:54px;
+  }
+  .section-sub::before{
+    content:"";display:inline-block;width:28px;height:1px;
+    background:var(--gold);vertical-align:middle;margin-right:14px;
+    transform:translateY(-3px);
+  }
+
+  /* ====== Concept (about) ====== */
+  .concept{display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center}
+  .concept__text p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;line-height:1.7;color:var(--ink);
+    font-weight:300;margin-bottom:18px;
+  }
+  .concept__text .lead{
+    font-size:22px;color:#f0ede6;font-style:italic;
+    border-left:1px solid var(--gold);padding-left:22px;margin:8px 0 28px;
+  }
+  .author{
+    margin-top:36px;
+    display:flex;align-items:center;gap:18px;
+    color:var(--ink-mute);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  }
+  .author b{color:#efece5;font-weight:400;letter-spacing:.18em}
+  .author .ring{
+    width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;
+    display:grid;place-items:center;color:var(--gold);
+    font-family:'Allura',cursive;font-size:26px;
+  }
+  .concept__img{
+    position:relative;aspect-ratio:5/4;overflow:hidden;
+    background:#1a1f23;
+  }
+  .concept__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+  .concept__img:hover img{transform:scale(1.04)}
+  .concept__img::after{
+    content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.12);
+    pointer-events:none;
+  }
+
+  /* ====== Specs ribbon ====== */
+  .specs{
+    background:linear-gradient(to bottom,#1f2429,#262d33);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:36px 0;
+  }
+  .specs__grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    text-align:center;gap:32px;
+  }
+  .spec .n{
+    font-family:'Jost',sans-serif;font-weight:200;
+    font-size:clamp(34px,4vw,52px);color:#f0ede6;letter-spacing:.04em;
+    display:block;line-height:1;
+  }
+  .spec .n sup{font-size:.45em;color:var(--gold);margin-left:2px;top:-0.7em;position:relative}
+  .spec .l{
+    margin-top:10px;
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  /* ====== Advantages ====== */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .feature{
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));
+    border:1px solid var(--line);
+    padding:38px 32px 34px;
+    position:relative;
+    transition:transform .6s var(--ease),border-color .6s var(--ease);
+  }
+  .feature:hover{transform:translateY(-4px);border-color:rgba(199,165,117,.45)}
+  .feature__num{
+    position:absolute;top:18px;right:22px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--gold);font-size:18px;letter-spacing:.1em;
+  }
+  .feature__icon{
+    width:54px;height:54px;border:1px solid var(--gold-soft);
+    display:grid;place-items:center;margin-bottom:24px;color:var(--gold);
+  }
+  .feature h3{
+    font-family:'Jost',sans-serif;font-weight:300;
+    font-size:18px;letter-spacing:.22em;text-transform:uppercase;
+    color:#efece5;margin-bottom:14px;line-height:1.4;
+  }
+  .feature p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:17px;line-height:1.65;color:var(--ink-mute);
+  }
+
+  /* ====== Gallery ====== */
+  .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+  .gallery a{
+    position:relative;overflow:hidden;display:block;aspect-ratio:4/3;background:#1a1f23;
+  }
+  .gallery a:nth-child(1){grid-column:span 4;aspect-ratio:16/9}
+  .gallery a:nth-child(2){grid-column:span 2}
+  .gallery a:nth-child(3){grid-column:span 2}
+  .gallery a:nth-child(4){grid-column:span 2}
+  .gallery a:nth-child(5){grid-column:span 2}
+  .gallery a:nth-child(6){grid-column:span 3}
+  .gallery a:nth-child(7){grid-column:span 3}
+  .gallery a img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter .8s var(--ease);filter:saturate(.95)}
+  .gallery a:hover img{transform:scale(1.06);filter:saturate(1.05)}
+  .gallery a::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(20,24,27,.55),rgba(20,24,27,0) 50%);
+    pointer-events:none;opacity:.7;transition:opacity .4s var(--ease);
+  }
+  .gallery a:hover::after{opacity:.35}
+  .gallery .cap{
+    position:absolute;left:18px;bottom:14px;z-index:2;
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#e9e7e0;
+  }
+
+  /* ====== Audience ====== */
+  .audience{
+    background:
+      linear-gradient(rgba(20,24,27,.85),rgba(20,24,27,.85)),
+      url('images/web/night.jpg') center/cover no-repeat fixed;
+  }
+  .audience .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  .card{
+    background:rgba(35,41,46,.72);
+    border:1px solid var(--line);
+    padding:42px 38px;
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+  }
+  .card h3{
+    font-family:'Jost',sans-serif;font-weight:300;
+    font-size:16px;letter-spacing:.34em;text-transform:uppercase;
+    margin-bottom:24px;color:#efece5;
+  }
+  .card h3 em{
+    font-family:'Allura',cursive;text-transform:none;
+    color:var(--gold);letter-spacing:0;font-size:30px;font-style:normal;margin-right:6px;
+    vertical-align:-6px;
+  }
+  .card ul{list-style:none}
+  .card li{
+    font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.55;
+    color:var(--ink);padding:12px 0 12px 28px;position:relative;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .card li:last-child{border-bottom:none}
+  .card li::before{
+    content:"";position:absolute;left:0;top:22px;
+    width:14px;height:1px;background:var(--gold);
+  }
+
+  /* ====== CTA ====== */
+  .cta{
+    text-align:center;padding:130px 0 120px;
+    background:linear-gradient(180deg,#23292e 0%,#1c2226 100%);
+    border-top:1px solid var(--line);
+    position:relative;overflow:hidden;
+  }
+  .cta::before,.cta::after{
+    content:"";position:absolute;width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(199,165,117,.12),rgba(199,165,117,0) 70%);
+    pointer-events:none;
+  }
+  .cta::before{top:-160px;left:-100px}
+  .cta::after{bottom:-160px;right:-100px}
+  .cta h2{
+    font-family:'Jost',sans-serif;font-weight:200;
+    font-size:clamp(30px,4vw,52px);letter-spacing:.16em;text-transform:uppercase;
+    color:#f4f1ea;margin-bottom:18px;
+  }
+  .cta .cursive{
+    font-family:'Allura',cursive;font-size:clamp(28px,3.6vw,42px);
+    color:var(--gold);margin-bottom:42px;line-height:1;
+  }
+  .btn-cta{
+    --b:#c7a575;
+    position:relative;display:inline-flex;align-items:center;gap:16px;
+    font-family:'Jost',sans-serif;font-weight:400;font-size:14px;
+    letter-spacing:.34em;text-transform:uppercase;color:#1c2226;
+    background:var(--b);padding:22px 44px;cursor:pointer;
+    border:none;outline:none;
+    transition:transform .4s var(--ease),background .4s var(--ease);
+    z-index:1;
+  }
+  .btn-cta::before,.btn-cta::after{
+    content:"";position:absolute;inset:0;border:1px solid var(--b);
+    z-index:-1;pointer-events:none;
+  }
+  .btn-cta::before{animation:pulseRing 2.4s var(--ease) infinite}
+  .btn-cta::after{animation:pulseRing 2.4s var(--ease) infinite .8s}
+  @keyframes pulseRing{
+    0%{transform:scale(1);opacity:.85}
+    80%{transform:scale(1.35);opacity:0}
+    100%{transform:scale(1.35);opacity:0}
+  }
+  .btn-cta:hover{transform:translateY(-2px);background:#d6b787}
+  .btn-cta svg{transition:transform .4s var(--ease)}
+  .btn-cta:hover svg{transform:translateX(4px)}
+
+  .tg-link{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:32px;
+    font-size:14px;letter-spacing:.18em;color:var(--ink-mute);
+    transition:color .3s var(--ease);
+  }
+  .tg-link:hover{color:var(--gold)}
+  .tg-link svg{width:18px;height:18px}
+
+  /* ====== Footer ====== */
+  footer{
+    padding:34px 32px;
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:12px;letter-spacing:.24em;color:var(--ink-soft);text-transform:uppercase;
+    flex-wrap:wrap;gap:14px;
+  }
+
+  /* ====== Reveal on scroll (only when JS booted) ====== */
+  html.js-on .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  html.js-on .reveal.in{opacity:1;transform:none}
+  html.js-on .reveal.d1{transition-delay:.12s}
+  html.js-on .reveal.d2{transition-delay:.24s}
+  html.js-on .reveal.d3{transition-delay:.36s}
+
+  /* ====== Responsive ====== */
+  @media (max-width:980px){
+    .concept{grid-template-columns:1fr;gap:42px}
+    .specs__grid{grid-template-columns:repeat(2,1fr);row-gap:32px}
+    .features{grid-template-columns:1fr;gap:18px}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gallery a,
+    .gallery a:nth-child(n){grid-column:span 1;aspect-ratio:4/3}
+    .audience .wrap{grid-template-columns:1fr;gap:24px}
+    .audience{background-attachment:scroll}
+    section{padding:80px 0}
+    .topbar{padding:14px 18px}
+    .topbar .meta{display:none}
+    .hero__inner{padding:0 22px 70px}
+    .wrap{padding:0 22px}
+    footer{padding:24px 22px;font-size:11px}
+  }
+  @media (max-width:560px){
+    .hero h1{letter-spacing:.06em}
+    .hero h1 .small{letter-spacing:.36em}
+    .feature{padding:30px 24px}
+    .card{padding:32px 24px}
+    .btn-cta{padding:18px 28px;font-size:12px;letter-spacing:.28em}
+    .cta{padding:90px 0 80px}
+    .brand{font-size:15px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- =============== HEADER =============== -->
+<header class="topbar">
+  <div class="brand">MIM<b> </b><span>design</span></div>
+  <div class="meta">Москва · 2024</div>
+</header>
+
+<!-- =============== HERO =============== -->
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <div class="eyebrow">Загородный дом · 245 м²</div>
+    <h1>
+      БРЕХОВО
+      <span class="small">одноэтажный дизайнерский дом</span>
+    </h1>
+    <div class="hero__cursive">Гармония загородной жизни</div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span>SCROLL</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- =============== CONCEPT =============== -->
+<section id="about">
+  <div class="wrap concept">
+    <div class="concept__text reveal">
+      <div class="section-sub">Концепция проекта</div>
+      <h2 class="section-title">Дом, продуманный до детали</h2>
+      <p class="lead">Компактное одноэтажное разно-высокое здание в современном стиле — с плоской кровлей, панорамным остеклением и просторной террасой, органично вписанное в природный ландшафт.</p>
+      <p>Общественная зона объединяет кухню с островом, столовую и гостиную с каминной зоной. Высота потолков здесь&nbsp;— 4.5&nbsp;метра, оконные проёмы начинаются прямо от пола, что наполняет дом светом и визуально расширяет пространство.</p>
+      <p>Три независимых спальных блока: мастер-спальня повышенной комфортности и две гостевые — каждая со своей гардеробной и ванной комнатой. Дом спроектирован для круглогодичного проживания в средней полосе России.</p>
+
+      <div class="author">
+        <div class="ring">M</div>
+        <div>
+          Автор проекта<br>
+          <b>Архитектор Илья Макотинский</b>
+        </div>
+      </div>
+    </div>
+    <div class="concept__img reveal d1">
+      <img src="images/web/patio1.jpg" alt="Патио. Загородный дом Брехово" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- =============== SPECS =============== -->
+<section class="specs" style="padding:54px 0">
+  <div class="wrap">
+    <div class="specs__grid">
+      <div class="spec reveal"><span class="n">245<sup>м²</sup></span><span class="l">Жилая площадь</span></div>
+      <div class="spec reveal d1"><span class="n">458<sup>м²</sup></span><span class="l">Площадь застройки</span></div>
+      <div class="spec reveal d2"><span class="n">4.5<sup>м</sup></span><span class="l">Высота потолков</span></div>
+      <div class="spec reveal d3"><span class="n">3</span><span class="l">Спальных блока</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== ADVANTAGES =============== -->
+<section id="advantages">
+  <div class="wrap">
+    <div class="section-sub reveal">3 сильных преимущества</div>
+    <h2 class="section-title reveal" style="margin-bottom:54px">Почему этот дом</h2>
+    <div class="features">
+
+      <article class="feature reveal">
+        <span class="feature__num">01</span>
+        <div class="feature__icon" aria-hidden="true">
+          <!-- panoramic window -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="3" width="18" height="18"/>
+            <line x1="12" y1="3" x2="12" y2="21"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="21" x2="21" y2="21" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Свет и пространство</h3>
+        <p>Потолки 4.5&nbsp;м в гостиной, панорамные окна от пола до потолка, алюминиевые рамы с двухкамерными стеклопакетами. Лес становится частью интерьера.</p>
+      </article>
+
+      <article class="feature reveal d1">
+        <span class="feature__num">02</span>
+        <div class="feature__icon" aria-hidden="true">
+          <!-- three blocks -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="2" y="9" width="6" height="10"/>
+            <rect x="9" y="5" width="6" height="14"/>
+            <rect x="16" y="9" width="6" height="10"/>
+            <line x1="2" y1="20" x2="22" y2="20" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Три приватных блока</h3>
+        <p>Мастер-спальня повышенной комфортности и две гостевые — у каждой собственная гардеробная и ванная. Полная независимость зон без компромиссов.</p>
+      </article>
+
+      <article class="feature reveal d2">
+        <span class="feature__num">03</span>
+        <div class="feature__icon" aria-hidden="true">
+          <!-- pergola / terrace -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <line x1="3" y1="6" x2="21" y2="6" stroke-width="1.6"/>
+            <line x1="5" y1="6" x2="5" y2="20"/>
+            <line x1="9" y1="6" x2="9" y2="20"/>
+            <line x1="13" y1="6" x2="13" y2="20"/>
+            <line x1="17" y1="6" x2="17" y2="20"/>
+            <line x1="3" y1="20" x2="21" y2="20" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Терраса 90 м² с барбекю</h3>
+        <p>Просторная открытая терраса с тремя выходами и зоной барбекю под декоративной перголой&nbsp;— продолжение жилого пространства на улицу в любое время года.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- =============== GALLERY =============== -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-sub reveal">Архитектура и патио</div>
+    <h2 class="section-title reveal" style="margin-bottom:54px">Взгляд изнутри</h2>
+    <div class="gallery">
+      <a class="reveal"><img src="images/web/hero.jpg" alt="Главный вид. Патио"><span class="cap">Ракурс 05 · Патио</span></a>
+      <a class="reveal d1"><img src="images/web/patio2.jpg" alt="Зона барбекю"><span class="cap">Ракурс 07 · Барбекю</span></a>
+      <a class="reveal d1"><img src="images/web/patio3.jpg" alt="Терраса с перголой"><span class="cap">Ракурс 08 · Пергола</span></a>
+      <a class="reveal d2"><img src="images/web/patio4.jpg" alt="Общая панорама патио"><span class="cap">Ракурс 10 · Панорама</span></a>
+      <a class="reveal d2"><img src="images/web/patio5.jpg" alt="Вариант фасада 2"><span class="cap">Вариант&nbsp;2 · Патио</span></a>
+      <a class="reveal d3"><img src="images/web/patio6.jpg" alt="Боковой ракурс"><span class="cap">Вариант&nbsp;2 · Барбекю</span></a>
+      <a class="reveal d3"><img src="images/web/night.jpg" alt="Вечернее освещение"><span class="cap">Вечернее освещение</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- =============== AUDIENCE =============== -->
+<section class="audience">
+  <div class="wrap">
+
+    <div class="card reveal">
+      <h3><em>К</em>Кому подойдёт</h3>
+      <ul>
+        <li>Семьям, которые ищут одноэтажный дом для круглогодичного проживания в средней полосе России</li>
+        <li>Ценителям современной архитектуры — лаконичных форм, натуральных материалов и связи с природой</li>
+        <li>Тем, кому важна приватность зон: три независимых спальных блока с собственными гардеробными и ванными</li>
+        <li>Заказчикам в посёлке «Брехово» — проект задуман именно под эти участки</li>
+      </ul>
+    </div>
+
+    <div class="card reveal d1">
+      <h3><em>В</em>Почему это выгодно</h3>
+      <ul>
+        <li>Готовая концепция вместо индивидуального проектирования — экономия месяцев работы и бюджета</li>
+        <li>Два варианта отделки фасадов уже предусмотрены — индивидуальность без переплат</li>
+        <li>Все ключевые конструктивные решения проработаны: монолитная плита, клинкерный фасад, скрытые водостоки</li>
+        <li>Планировочный коэффициент K1&nbsp;=&nbsp;0.66 — высокая полезная площадь на каждом квадратном метре</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============== CTA =============== -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <div class="cursive reveal">Готовы обсудить ваш дом?</div>
+    <h2 class="reveal d1">Запишитесь на консультацию</h2>
+    <p class="reveal d2" style="color:var(--ink-mute);font-family:'Cormorant Garamond',serif;font-size:18px;max-width:560px;margin:0 auto 42px">
+      Расскажем о проекте, обсудим адаптацию под ваш участок и варианты отделки. Личный разговор с архитектором&nbsp;— без обязательств.
+    </p>
+
+    <a class="btn-cta reveal d3" href="https://t.me/Andrey_Tatevosyan" target="_blank" rel="noopener">
+      Записаться на консультацию
+      <svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.4">
+        <line x1="0" y1="6" x2="20" y2="6"/>
+        <polyline points="14,1 20,6 14,11"/>
+      </svg>
+    </a>
+
+    <div>
+      <a class="tg-link" href="https://t.me/Andrey_Tatevosyan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.5 4.2L2.8 11.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 11-7c.5-.3 1-.1.6.2L9.5 15.5l-.3 4.7c.5 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.9l3.3-15.5c.3-1.3-.5-1.9-1.5-1.5z"/>
+        </svg>
+        @Andrey_Tatevosyan
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand" style="font-size:14px">MIM <span>design</span></div>
+  <div>www.mim-design.ru</div>
+  <div>загородный дом «Брехово» · 2024</div>
+</footer>
+
+<script>
+  // Mark JS-on so CSS knows it can hide .reveal items for animation.
+  document.documentElement.classList.add('js-on');
+
+  // Reveal on scroll
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  } else {
+    // Old browser fallback — just show everything.
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+  }
+
+  // Topbar subtle shrink on scroll (renamed from `top` — collided with window.top)
+  const topbar = document.querySelector('.topbar');
+  window.addEventListener('scroll', () => {
+    topbar.style.padding = window.scrollY > 30 ? '12px 32px' : '18px 32px';
+  }, { passive: true });
+</script>
+</body>
+</html>
