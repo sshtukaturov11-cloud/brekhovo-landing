@@ -258,6 +258,63 @@
     position:absolute;left:18px;bottom:14px;z-index:2;
     font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#e9e7e0;
   }
+  .gallery a{cursor:zoom-in;-webkit-tap-highlight-color:rgba(199,165,117,.2)}
+
+  /* ====== Lightbox ====== */
+  .lightbox{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(10,12,14,.95);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;visibility:hidden;
+    transition:opacity .35s var(--ease),visibility .35s var(--ease);
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    overscroll-behavior:contain;
+    touch-action:none;
+  }
+  .lightbox.open{opacity:1;visibility:visible}
+  .lightbox__img{
+    max-width:94vw;max-height:84vh;
+    width:auto;height:auto;
+    object-fit:contain;
+    box-shadow:0 24px 80px rgba(0,0,0,.6);
+    user-select:none;-webkit-user-drag:none;
+    transition:opacity .25s var(--ease),transform .35s var(--ease);
+  }
+  .lightbox__cap{
+    position:absolute;left:0;right:0;bottom:max(22px,env(safe-area-inset-bottom));
+    text-align:center;font-size:11px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--ink-mute);
+  }
+  .lightbox__btn{
+    position:absolute;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.18);
+    color:#efece5;cursor:pointer;
+    width:48px;height:48px;display:grid;place-items:center;
+    font-family:'Jost',sans-serif;font-weight:300;
+    transition:background .25s var(--ease),border-color .25s var(--ease);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .lightbox__btn:hover,.lightbox__btn:focus-visible{
+    background:rgba(199,165,117,.18);border-color:var(--gold);outline:none;
+  }
+  .lightbox__close{top:max(20px,env(safe-area-inset-top));right:20px}
+  .lightbox__close svg{width:18px;height:18px}
+  .lightbox__prev{left:20px;top:50%;transform:translateY(-50%)}
+  .lightbox__next{right:20px;top:50%;transform:translateY(-50%)}
+  .lightbox__nav svg{width:14px;height:22px}
+  .lightbox__counter{
+    position:absolute;top:max(28px,env(safe-area-inset-top));left:50%;
+    transform:translateX(-50%);
+    font-size:11px;letter-spacing:.32em;color:var(--ink-soft);
+  }
+  body.lb-open{overflow:hidden}
+  @media (max-width:560px){
+    .lightbox__img{max-width:96vw;max-height:78vh}
+    .lightbox__btn{width:42px;height:42px}
+    .lightbox__prev{left:10px}
+    .lightbox__next{right:10px}
+    .lightbox__close{top:max(14px,env(safe-area-inset-top));right:12px}
+  }
 
   /* ====== Audience ====== */
   .audience{
@@ -526,14 +583,14 @@
   <div class="wrap">
     <div class="section-sub reveal">Архитектура и патио</div>
     <h2 class="section-title reveal" style="margin-bottom:54px">Взгляд изнутри</h2>
-    <div class="gallery">
-      <a class="reveal"><img src="images/web/hero.jpg" alt="Главный вид. Патио"><span class="cap">Ракурс 05 · Патио</span></a>
-      <a class="reveal d1"><img src="images/web/patio2.jpg" alt="Зона барбекю"><span class="cap">Ракурс 07 · Барбекю</span></a>
-      <a class="reveal d1"><img src="images/web/patio3.jpg" alt="Терраса с перголой"><span class="cap">Ракурс 08 · Пергола</span></a>
-      <a class="reveal d2"><img src="images/web/patio4.jpg" alt="Общая панорама патио"><span class="cap">Ракурс 10 · Панорама</span></a>
-      <a class="reveal d2"><img src="images/web/patio5.jpg" alt="Вариант фасада 2"><span class="cap">Вариант&nbsp;2 · Патио</span></a>
-      <a class="reveal d3"><img src="images/web/patio6.jpg" alt="Боковой ракурс"><span class="cap">Вариант&nbsp;2 · Барбекю</span></a>
-      <a class="reveal d3"><img src="images/web/night.jpg" alt="Вечернее освещение"><span class="cap">Вечернее освещение</span></a>
+    <div class="gallery" id="gallery-grid">
+      <a class="reveal"    href="images/web/hero.jpg"   data-cap="Ракурс 05 · Патио"><img src="images/web/hero.jpg"   alt="Главный вид. Патио" loading="lazy"><span class="cap">Ракурс 05 · Патио</span></a>
+      <a class="reveal d1" href="images/web/patio2.jpg" data-cap="Ракурс 07 · Барбекю"><img src="images/web/patio2.jpg" alt="Зона барбекю" loading="lazy"><span class="cap">Ракурс 07 · Барбекю</span></a>
+      <a class="reveal d1" href="images/web/patio3.jpg" data-cap="Ракурс 08 · Пергола"><img src="images/web/patio3.jpg" alt="Терраса с перголой" loading="lazy"><span class="cap">Ракурс 08 · Пергола</span></a>
+      <a class="reveal d2" href="images/web/patio4.jpg" data-cap="Ракурс 10 · Панорама"><img src="images/web/patio4.jpg" alt="Общая панорама патио" loading="lazy"><span class="cap">Ракурс 10 · Панорама</span></a>
+      <a class="reveal d2" href="images/web/patio5.jpg" data-cap="Вариант 2 · Патио"><img src="images/web/patio5.jpg" alt="Вариант фасада 2" loading="lazy"><span class="cap">Вариант&nbsp;2 · Патио</span></a>
+      <a class="reveal d3" href="images/web/patio6.jpg" data-cap="Вариант 2 · Барбекю"><img src="images/web/patio6.jpg" alt="Боковой ракурс" loading="lazy"><span class="cap">Вариант&nbsp;2 · Барбекю</span></a>
+      <a class="reveal d3" href="images/web/night.jpg"  data-cap="Вечернее освещение"><img src="images/web/night.jpg"  alt="Вечернее освещение" loading="lazy"><span class="cap">Вечернее освещение</span></a>
     </div>
   </div>
 </section>
@@ -601,6 +658,28 @@
   <div>загородный дом «Брехово» · 2024</div>
 </footer>
 
+<!-- =============== LIGHTBOX =============== -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр фотографии">
+  <div class="lightbox__counter" id="lb-counter"></div>
+  <button class="lightbox__btn lightbox__close" id="lb-close" aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
+    </svg>
+  </button>
+  <button class="lightbox__btn lightbox__nav lightbox__prev" id="lb-prev" aria-label="Предыдущее фото">
+    <svg viewBox="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <polyline points="11,1 2,11 11,21"/>
+    </svg>
+  </button>
+  <button class="lightbox__btn lightbox__nav lightbox__next" id="lb-next" aria-label="Следующее фото">
+    <svg viewBox="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <polyline points="3,1 12,11 3,21"/>
+    </svg>
+  </button>
+  <img class="lightbox__img" id="lb-img" alt="">
+  <div class="lightbox__cap" id="lb-cap"></div>
+</div>
+
 <script>
   // Mark JS-on so CSS knows it can hide .reveal items for animation.
   document.documentElement.classList.add('js-on');
@@ -626,6 +705,80 @@
   window.addEventListener('scroll', () => {
     topbar.style.padding = window.scrollY > 30 ? '12px 32px' : '18px 32px';
   }, { passive: true });
+
+  // ===== Lightbox =====
+  (function () {
+    const grid = document.getElementById('gallery-grid');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-cap');
+    const lbCounter = document.getElementById('lb-counter');
+    if (!grid || !lb) return;
+
+    const items = Array.from(grid.querySelectorAll('a'));
+    let idx = 0;
+
+    function show(i) {
+      idx = (i + items.length) % items.length;
+      const a = items[idx];
+      lbImg.style.opacity = '0';
+      const next = new Image();
+      next.onload = () => {
+        lbImg.src = next.src;
+        lbImg.alt = a.querySelector('img')?.alt || '';
+        lbImg.style.opacity = '1';
+      };
+      next.src = a.getAttribute('href');
+      lbCap.textContent = a.dataset.cap || '';
+      lbCounter.textContent = (idx + 1) + ' / ' + items.length;
+    }
+    function open(i) {
+      show(i);
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lb-open');
+    }
+    function close() {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lb-open');
+    }
+
+    items.forEach((a, i) => {
+      a.addEventListener('click', (e) => { e.preventDefault(); open(i); });
+    });
+
+    document.getElementById('lb-close').addEventListener('click', close);
+    document.getElementById('lb-prev').addEventListener('click', () => show(idx - 1));
+    document.getElementById('lb-next').addEventListener('click', () => show(idx + 1));
+
+    // click on backdrop closes; clicks on the image / buttons don't
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight') show(idx + 1);
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+    });
+
+    // touch swipe (mobile)
+    let tx = 0, ty = 0, swiping = false;
+    lb.addEventListener('touchstart', (e) => {
+      if (e.touches.length !== 1) return;
+      tx = e.touches[0].clientX; ty = e.touches[0].clientY; swiping = true;
+    }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      if (!swiping) return; swiping = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - tx, dy = t.clientY - ty;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        show(idx + (dx < 0 ? 1 : -1));
+      } else if (dy > 80 && Math.abs(dy) > Math.abs(dx)) {
+        close();
+      }
+    });
+  })();
 </script>
 </body>
 </html>
