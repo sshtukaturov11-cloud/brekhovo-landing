@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#2a2826" />
 <title>Синергия · Коммерческое предложение</title>
-<meta property="og:title" content="Коммерческое предложение: система ИИ для маркетинга и продажи особняка в посёлке Синергия" />
-<meta property="og:description" content="Система, которая готовит дом к продаже." />
-<meta property="og:image" content="img/hero.png" />
+<meta property="og:title" content="Коммерческое предложение: продвижение и продажа особняка в посёлке Синергия" />
+<meta property="og:description" content="Готовим дом к продаже от первого касания покупателя до встречи на объекте." />
+<meta property="og:image" content="img/house-p24.jpg" />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,16 +53,11 @@
     padding: clamp(32px, 5vw, 80px) clamp(20px, 6vw, 96px);
     overflow:hidden;
   }
-  .slide.dark{
-    background:var(--dark-bg);
-    color:var(--dark-ink);
-  }
+  .slide.dark{ background:var(--dark-bg); color:var(--dark-ink); }
   .slide.dark .eyebrow{color:var(--dark-muted)}
   .slide.dark .muted{color:var(--dark-muted)}
   .slide.dark .divider{background:var(--dark-line)}
-  .slide.dark .pill{border-color:var(--dark-line);color:var(--dark-muted)}
 
-  /* Eyebrow / labels */
   .eyebrow{
     font-family:'Manrope',sans-serif;
     font-size: clamp(11px,0.9vw,13px);
@@ -72,46 +67,39 @@
     color:var(--muted);
     margin-bottom: 24px;
   }
-  .accent{color:var(--accent)}
   h1,h2,h3,h4{font-family:'Unbounded','Manrope',sans-serif;font-weight:600;letter-spacing:-0.01em;line-height:1.08}
   h1{font-size: clamp(34px, 5.2vw, 76px)}
-  h2{font-size: clamp(28px, 3.6vw, 52px)}
+  h2{font-size: clamp(26px, 3.4vw, 48px)}
   h3{font-size: clamp(22px, 2.4vw, 36px)}
-  h4{font-size: clamp(18px, 1.6vw, 24px); letter-spacing:0}
-  p{font-size: clamp(16px, 1.15vw, 19px); color:var(--ink-2); max-width: 78ch}
-  .lead{font-size: clamp(18px, 1.4vw, 24px); color:var(--ink); max-width: 70ch; line-height:1.45}
+  h4{font-size: clamp(17px, 1.4vw, 22px); letter-spacing:0}
+  p{font-size: clamp(15px, 1.1vw, 18px); color:var(--ink-2); max-width: 78ch}
+  .lead{font-size: clamp(17px, 1.3vw, 22px); color:var(--ink); max-width: 70ch; line-height:1.45}
   .small{font-size: clamp(13px, .9vw, 15px); color:var(--muted)}
   .muted{color:var(--muted)}
-  .divider{width:64px;height:2px;background:var(--ink);margin: 28px 0}
+  .divider{width:64px;height:2px;background:var(--ink);margin: 24px 0}
   a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line); transition: border-color .2s, color .2s}
   a:hover{border-color:var(--accent); color:var(--accent)}
 
-  /* Layout helpers */
   .wrap{max-width: 1320px; width:100%; margin: 0 auto}
-  .grid-2{display:grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px); align-items:center}
-  .grid-2.flip{grid-template-columns: .95fr 1.05fr}
-  .stack > * + *{margin-top: 18px}
-  .stack-lg > * + *{margin-top: 28px}
+  .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 60px); align-items:center}
+  .grid-2.flip{direction:rtl}
+  .grid-2.flip > *{direction:ltr}
+  .stack > * + *{margin-top: 16px}
 
-  /* Hero slide */
-  .hero{
-    padding:0;
-    background:#1d1c1a;
-    color:#fff;
-  }
+  /* Hero — full bleed render, no person */
+  .hero{ padding:0; background:#1d1c1a; color:#fff; }
   .hero-img{
     position:absolute;
     inset:0;
-    background-image:url('img/hero.png');
+    background-image:url('img/house-p24.jpg');
     background-size:cover;
     background-position:center;
-    filter: saturate(.92);
   }
   .hero::after{
     content:'';
     position:absolute;
     inset:0;
-    background: linear-gradient(180deg, rgba(20,18,17,.05) 0%, rgba(20,18,17,.15) 45%, rgba(20,18,17,.78) 100%);
+    background: linear-gradient(180deg, rgba(20,18,17,.1) 0%, rgba(20,18,17,.2) 45%, rgba(20,18,17,.82) 100%);
     pointer-events:none;
   }
   .hero-content{
@@ -121,42 +109,41 @@
     padding: clamp(28px, 5vw, 80px) clamp(20px, 6vw, 96px) clamp(48px, 7vw, 96px);
     width:100%;
   }
-  .hero-content .eyebrow{color:#cbb89a; margin-bottom: 32px}
+  .hero-content .eyebrow{color:#cbb89a; margin-bottom: 28px}
   .hero h1{
     color:#fff;
     font-weight:600;
-    max-width: 20ch;
+    max-width: 22ch;
     text-shadow: 0 2px 24px rgba(0,0,0,.35);
   }
   .hero-meta{
-    margin-top: 36px;
-    display:flex; flex-wrap:wrap; gap: 12px 24px;
+    margin-top: 32px;
+    display:flex; flex-wrap:wrap; gap: 12px 22px;
     color:#cbb89a;
-    font-size: clamp(13px,1vw,15px);
-    letter-spacing:.08em;
+    font-size: clamp(12px,.95vw,14px);
+    letter-spacing:.1em;
     text-transform:uppercase;
   }
   .hero-meta span{display:inline-flex; align-items:center; gap:10px}
   .hero-meta span::before{content:''; width:6px; height:6px; background:#a8835a; border-radius:50%}
 
-  /* Strategy image */
+  /* Photo */
   .photo{
     position:relative;
     width:100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/10;
     border-radius: 4px;
     overflow:hidden;
     background:#cfc7b9;
   }
   .photo img{width:100%; height:100%; object-fit:cover; display:block}
-  .photo.tall{aspect-ratio: 3/4}
+  .photo.tall{aspect-ratio: 4/5}
   .photo.wide{aspect-ratio: 16/9}
 
-  /* CTA-like emphasized callout */
   .callout{
     border-left: 3px solid var(--accent);
-    padding: 14px 0 14px 22px;
-    font-size: clamp(18px,1.4vw,22px);
+    padding: 12px 0 12px 20px;
+    font-size: clamp(17px,1.3vw,21px);
     color:var(--ink);
     font-weight:500;
     line-height:1.4;
@@ -164,121 +151,151 @@
   }
   .dark .callout{color:var(--dark-ink); border-color:var(--accent)}
 
-  /* 4 types: numbered cards */
-  .types{
+  /* 4 types grid */
+  .types-grid{
     display:grid;
-    grid-template-columns: 64px 1fr;
-    gap: 24px clamp(20px, 3vw, 40px);
-    align-items:start;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 2.5vw, 36px);
+    margin-top: 32px;
   }
-  .num{
+  .type-card{
+    border-top: 2px solid var(--ink);
+    padding-top: 18px;
+  }
+  .type-card .n{
     font-family:'Unbounded',sans-serif;
-    font-size: clamp(40px, 4vw, 60px);
-    font-weight:500;
-    color:var(--accent);
-    line-height:1;
-    letter-spacing:-.02em;
+    font-size: clamp(11px,.9vw,13px);
+    font-weight:600;
+    letter-spacing:.18em;
+    color: var(--accent);
+    text-transform:uppercase;
+    margin-bottom: 8px;
   }
-  .reels{margin-top: 14px; display:flex; flex-direction:column; gap:6px}
-  .reels a{
-    font-size: clamp(13px,.95vw,15px);
-    color:var(--muted);
-    border-bottom:1px dashed var(--line);
-    word-break:break-all;
-    width:fit-content;
-    padding-bottom:1px;
-  }
+  .type-card h4{margin-bottom: 10px; font-family:'Manrope',sans-serif; font-weight:600}
+  .type-card p{font-size: clamp(14px,1vw,16px); color:var(--ink-2)}
 
-  /* Specials list */
-  .pills{display:flex; flex-wrap:wrap; gap:10px; margin-top: 20px}
+  .specials{
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .specials .label{
+    font-size: clamp(12px,.9vw,14px);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .pills{display:flex; flex-wrap:wrap; gap:8px 10px}
   .pill{
     border:1px solid var(--line);
     border-radius: 999px;
-    padding: 10px 18px;
-    font-size: clamp(14px,1vw,16px);
+    padding: 8px 16px;
+    font-size: clamp(13px,.95vw,15px);
     color:var(--ink-2);
     background:transparent;
   }
+  .specials p{margin-top: 12px; font-size: clamp(14px,1vw,16px)}
 
   /* Package slides */
   .pkg-tag{
     display:inline-block;
-    padding: 8px 16px;
+    padding: 7px 14px;
     border:1px solid var(--accent);
     color:var(--accent);
     border-radius: 999px;
-    font-size: clamp(12px,.9vw,14px);
+    font-size: clamp(11px,.85vw,13px);
     font-weight:600;
     letter-spacing:.18em;
     text-transform:uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   .dark .pkg-tag{border-color:var(--accent); color:#d6b48a}
   .feat{
     display:grid;
     grid-template-columns: 220px 1fr;
-    gap: 16px clamp(20px, 3vw, 40px);
-    padding: 22px 0;
+    gap: 12px clamp(20px, 3vw, 36px);
+    padding: 16px 0;
     border-top: 1px solid var(--line);
   }
   .dark .feat{border-color:var(--dark-line)}
   .feat:last-child{border-bottom: 1px solid var(--line)}
   .dark .feat:last-child{border-color:var(--dark-line)}
   .feat-label{
-    font-size: clamp(12px,.85vw,14px);
+    font-size: clamp(11px,.8vw,13px);
     text-transform:uppercase;
     letter-spacing:.16em;
     color:var(--muted);
     font-weight:600;
-    padding-top:4px;
+    padding-top:3px;
   }
   .dark .feat-label{color:var(--dark-muted)}
-  .feat-body{font-size: clamp(16px,1.1vw,18px); color:var(--ink); line-height:1.5}
+  .feat-body{font-size: clamp(14px,1vw,17px); color:var(--ink); line-height:1.5}
   .dark .feat-body{color:var(--dark-ink)}
 
-  /* Stages timeline */
+  /* Package with photo */
+  .pkg-layout{display:grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px,4vw,56px); align-items:start}
+  @media (max-width:960px){ .pkg-layout{grid-template-columns:1fr} }
+
+  /* Stages */
   .stages{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: clamp(16px, 2vw, 32px);
-    margin-top: 36px;
+    gap: clamp(14px, 1.8vw, 28px);
+    margin-top: 28px;
   }
   .stage{
     border-top:2px solid var(--ink);
-    padding-top: 18px;
-    min-height: 100%;
+    padding-top: 16px;
   }
   .dark .stage{border-top-color: var(--dark-ink)}
   .stage-no{
     font-family:'Unbounded',sans-serif;
-    font-size: clamp(12px,.9vw,14px);
+    font-size: clamp(11px,.85vw,13px);
     font-weight:600;
     letter-spacing:.18em;
     color:var(--accent);
     text-transform:uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
-  .stage h4{font-size: clamp(15px,1.15vw,18px); margin-bottom: 10px; letter-spacing:0; font-weight:600; font-family:'Manrope',sans-serif}
-  .stage p{font-size: clamp(13px,.95vw,15px); color:var(--ink-2); line-height:1.5}
+  .stage h4{font-size: clamp(14px,1.05vw,17px); margin-bottom: 8px; letter-spacing:0; font-weight:600; font-family:'Manrope',sans-serif}
+  .stage p{font-size: clamp(13px,.92vw,15px); color:var(--ink-2); line-height:1.45}
   .dark .stage p{color:var(--dark-muted)}
 
-  /* Pricing slide */
-  .pricing-wrap{
-    width:100%;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+  /* Pricing */
+  .pricing-wrap{ width:100%; max-width: 1280px; margin: 0 auto; }
   .pricing-img{
     width:100%;
     border:1px solid var(--line);
     border-radius: 4px;
     background:#fff;
-    padding: clamp(12px,1.5vw,24px);
+    padding: clamp(8px,1vw,16px);
   }
   .pricing-img img{width:100%; height:auto; display:block}
 
-  /* Image pair (pkg 3) */
-  .pair{display:grid; grid-template-columns: 1fr 1fr; gap: clamp(16px,2vw,28px)}
+  /* Pair of images */
+  .pair{display:grid; grid-template-columns: 1fr 1fr; gap: clamp(14px,1.8vw,24px); margin-top: 24px}
+  @media (max-width:760px){ .pair{grid-template-columns:1fr} }
+
+  /* Team slide */
+  .team{display:grid; grid-template-columns: 1fr 1fr; gap: clamp(28px,4vw,56px); margin-top: 32px}
+  .person{display:grid; grid-template-columns: 96px 1fr; gap: 20px; align-items:start}
+  .person .avatar{
+    width:96px; height:96px; border-radius: 50%;
+    overflow:hidden; background:#cfc7b9;
+    border: 1px solid var(--line);
+  }
+  .person .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+  .person .avatar.placeholder{
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Unbounded',sans-serif; font-weight:600;
+    color:var(--accent); font-size: 32px;
+    background: var(--bg-2);
+  }
+  .person h4{font-size: clamp(17px,1.4vw,22px); margin-bottom:4px; font-family:'Manrope',sans-serif; font-weight:700}
+  .person .role{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; font-weight:600}
+  .person p{font-size: clamp(14px,1vw,16px); color:var(--ink-2); line-height:1.55}
+  @media (max-width:760px){ .team{grid-template-columns:1fr; gap:32px} }
 
   /* THANK YOU */
   .thanks{
@@ -288,87 +305,49 @@
     text-align:center;
   }
   .thanks h1{
-    font-size: clamp(72px, 14vw, 220px);
+    font-size: clamp(72px, 14vw, 200px);
     font-weight:600;
     letter-spacing:-.02em;
     color:#fff;
     line-height:1;
   }
-  .thanks .accent-line{
-    width: 80px; height:2px; background:var(--accent); margin: 36px auto 0;
-  }
+  .thanks .accent-line{ width: 80px; height:2px; background:var(--accent); margin: 32px auto 0; }
 
-  /* Progress + counter */
-  .progress{
-    position: fixed;
-    top:0; left:0; right:0;
-    height:2px;
-    background: transparent;
-    z-index: 50;
-    pointer-events:none;
-  }
-  .progress-bar{
-    height:100%;
-    background: var(--accent);
-    width: 0%;
-    transition: width .15s linear;
-  }
+  /* UI overlays */
+  .progress{ position: fixed; top:0; left:0; right:0; height:2px; z-index: 50; pointer-events:none; }
+  .progress-bar{ height:100%; background: var(--accent); width: 0%; transition: width .15s linear; }
   .counter{
-    position: fixed;
-    bottom: 20px;
-    right: 24px;
-    z-index: 50;
+    position: fixed; bottom: 20px; right: 24px; z-index: 50;
     font-family:'Unbounded',sans-serif;
-    font-size: 12px;
-    letter-spacing:.18em;
+    font-size: 12px; letter-spacing:.18em;
     color: var(--ink);
-    background: rgba(244,241,236,.85);
-    backdrop-filter: blur(8px);
-    border:1px solid var(--line);
-    padding: 8px 14px;
-    border-radius: 999px;
+    background: rgba(244,241,236,.85); backdrop-filter: blur(8px);
+    border:1px solid var(--line); padding: 8px 14px; border-radius: 999px;
   }
   .brandmark{
-    position: fixed;
-    top: 20px;
-    left: 24px;
-    z-index: 50;
+    position: fixed; top: 20px; left: 24px; z-index: 50;
     font-family:'Unbounded',sans-serif;
-    font-size: 11px;
-    letter-spacing:.24em;
-    color: var(--ink);
-    text-transform:uppercase;
-    background: rgba(244,241,236,.85);
-    backdrop-filter: blur(8px);
-    border:1px solid var(--line);
-    padding: 8px 14px;
-    border-radius: 999px;
+    font-size: 11px; letter-spacing:.24em; color: var(--ink); text-transform:uppercase;
+    background: rgba(244,241,236,.85); backdrop-filter: blur(8px);
+    border:1px solid var(--line); padding: 8px 14px; border-radius: 999px;
   }
 
-  /* Mobile */
   @media (max-width: 860px){
     .slide{padding: 56px 22px}
-    .grid-2,.grid-2.flip{grid-template-columns: 1fr; gap: 28px}
-    .photo{aspect-ratio: 4/3}
-    .types{grid-template-columns: 48px 1fr; gap: 14px 18px}
-    .num{font-size: 44px}
-    .stages{grid-template-columns: 1fr 1fr; gap: 20px}
-    .feat{grid-template-columns: 1fr; gap: 6px; padding: 16px 0}
-    .pair{grid-template-columns: 1fr}
+    .grid-2{grid-template-columns: 1fr; gap: 28px}
+    .grid-2.flip{direction:ltr}
+    .types-grid{grid-template-columns: 1fr}
+    .stages{grid-template-columns: 1fr 1fr; gap: 18px}
+    .feat{grid-template-columns: 1fr; gap: 6px; padding: 14px 0}
     .hero-content{padding: 28px 22px 44px}
     .counter{bottom: 12px; right: 12px}
     .brandmark{top: 12px; left: 12px; font-size: 10px; padding: 6px 10px}
   }
 
-  /* Print export (PDF via Chrome) */
   @media print{
     body{height:auto; overflow:visible; scroll-snap-type:none}
     .progress,.counter,.brandmark{display:none}
-    .slide{
-      page-break-after: always;
-      min-height: 100vh;
-      height: 100vh;
-    }
+    .slide{ page-break-after: always; min-height: 100vh; height: 100vh; }
     .hero::after{background: linear-gradient(180deg, rgba(20,18,17,0) 30%, rgba(20,18,17,.7) 100%)}
   }
 </style>
@@ -377,364 +356,282 @@
 
 <div class="progress"><div class="progress-bar" id="pbar"></div></div>
 <div class="brandmark">Синергия · КП</div>
-<div class="counter" id="counter">01 / 16</div>
+<div class="counter" id="counter">01 / 11</div>
 
-<!-- 1. HERO -->
+<!-- 1. HERO — без человека, чистый рендер дома -->
 <section class="slide hero">
   <div class="hero-img"></div>
   <div class="hero-content">
     <div class="eyebrow">Коммерческое предложение</div>
-    <h1>СИСТЕМА ИИ ДЛЯ МАРКЕТИНГА И ПРОДАЖИ ОСОБНЯКА В&nbsp;ПОСЁЛКЕ СИНЕРГИЯ</h1>
+    <h1>ПРОДВИЖЕНИЕ И&nbsp;ПРОДАЖА ОСОБНЯКА В&nbsp;ПОСЁЛКЕ СИНЕРГИЯ</h1>
     <div class="hero-meta">
       <span>Закрытые показы</span>
-      <span>Горячие лиды в Telegram</span>
+      <span>Заявки в&nbsp;Телеграм</span>
       <span>2026</span>
     </div>
   </div>
 </section>
 
-<!-- 2. TARGET ACTION -->
-<section class="slide">
-  <div class="wrap">
-    <div class="eyebrow">Главная задача</div>
-    <h2>Получать заявки на&nbsp;закрытый показ напрямую в&nbsp;Телеграм продавца.</h2>
-    <div class="divider"></div>
-  </div>
-</section>
-
-<!-- 3. STRATEGIC APPROACH -->
+<!-- 2. ПОДХОД + ЗАДАЧА -->
 <section class="slide">
   <div class="wrap grid-2">
     <div>
-      <div class="eyebrow">Подход</div>
-      <h2>Система, которая готовит дом к&nbsp;продаже</h2>
+      <div class="eyebrow">Подход и&nbsp;задача</div>
+      <h2>Готовим дом к&nbsp;продаже от&nbsp;первого касания покупателя до&nbsp;встречи на&nbsp;объекте</h2>
       <div class="divider"></div>
       <div class="stack">
-        <p>Мы не просто снимаем ролики. Мы запускаем систему, которая готовит дом к продаже от первого касания покупателя до встречи на объекте.</p>
-        <p>Автор проекта архитектор Илья рассказывает о доме, Андрей делится опытом из мира недвижимости, а искусственный интеллект показывает, как будет выглядеть готовый интерьер прямо поверх бетона. Так мы снимаем главный страх покупателя — страх купить пустую бетонную «коробку», наглядно показываем, что объект окупится, и ускоряем сделку.</p>
+        <p><b>Задача системы.</b> Получать заявки на закрытый показ напрямую в Телеграм продавца.</p>
+        <p><b>Как мы работаем.</b> Архитектор и автор проекта Илья рассказывает о доме: материалах, конструктиве, решениях. Андрей — практикующий специалист в недвижимости — отвечает на вопросы покупателя. Искусственный интеллект помогает показать, как будет выглядеть готовый интерьер прямо поверх бетона.</p>
+        <p>Так мы снимаем главный страх покупателя — страх купить пустую бетонную «коробку», наглядно показываем, что объект окупится, и ускоряем сделку.</p>
       </div>
     </div>
     <div class="photo wide">
-      <img src="img/strategy.png" alt="Архитектура объекта в посёлке Синергия" />
+      <img src="img/house-p8.jpg" alt="Особняк в посёлке Синергия — дневной вид" />
     </div>
   </div>
 </section>
 
-<!-- 4. CONTENT STRATEGY INTRO -->
-<section class="slide dark">
-  <div class="wrap">
-    <div class="eyebrow">Контент</div>
-    <h2>Контент строится на&nbsp;4&nbsp;типах роликов</h2>
-    <div class="divider" style="background:var(--accent)"></div>
-    <div class="stages" style="margin-top:48px">
-      <div class="stage" style="border-top-color:var(--accent)">
-        <div class="stage-no">01</div>
-        <h4>Спикер в&nbsp;кадре</h4>
-      </div>
-      <div class="stage" style="border-top-color:var(--accent)">
-        <div class="stage-no">02</div>
-        <h4>Видео презентация объекта</h4>
-      </div>
-      <div class="stage" style="border-top-color:var(--accent)">
-        <div class="stage-no">03</div>
-        <h4>Видео генерации в&nbsp;трендовом стиле</h4>
-      </div>
-      <div class="stage" style="border-top-color:var(--accent)">
-        <div class="stage-no">04</div>
-        <h4>Видео дополненной реальности</h4>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. TYPE 1 -->
-<section class="slide">
-  <div class="wrap grid-2">
-    <div>
-      <div class="eyebrow">Тип контента · 01</div>
-      <div class="types">
-        <div class="num">01</div>
-        <div>
-          <h3>Спикер в&nbsp;кадре</h3>
-          <p style="margin-top:16px">Спикер в кадре – ролики на основе готовых сценариев с эффективным хуком.</p>
-          <div class="reels">
-            <a href="https://www.instagram.com/reel/DXon6vXh_Ej/" target="_blank" rel="noopener">instagram.com/reel/DXon6vXh_Ej</a>
-            <a href="https://www.instagram.com/reel/DX6w783vaK-/" target="_blank" rel="noopener">instagram.com/reel/DX6w783vaK-</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="photo tall">
-      <img src="img/type-1-speaker.png" alt="Спикер в кадре" />
-    </div>
-  </div>
-</section>
-
-<!-- 6. TYPE 2 -->
-<section class="slide">
-  <div class="wrap grid-2 flip">
-    <div class="photo wide">
-      <img src="img/type-2-object.png" alt="Видео презентация объекта" />
-    </div>
-    <div>
-      <div class="eyebrow">Тип контента · 02</div>
-      <div class="types">
-        <div class="num">02</div>
-        <div>
-          <h3>Видео презентация объекта</h3>
-          <p style="margin-top:16px">Видео презентация объекта – динамичный ролик на обзор всего объекта</p>
-          <div class="reels">
-            <a href="https://www.instagram.com/reel/DW1gQZbACz-/" target="_blank" rel="noopener">instagram.com/reel/DW1gQZbACz-</a>
-            <a href="https://www.instagram.com/reel/DWUMfKAgGTB/" target="_blank" rel="noopener">instagram.com/reel/DWUMfKAgGTB</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 7. TYPE 3 -->
-<section class="slide">
-  <div class="wrap grid-2">
-    <div>
-      <div class="eyebrow">Тип контента · 03</div>
-      <div class="types">
-        <div class="num">03</div>
-        <div>
-          <h3>Видео генерации в&nbsp;трендовом стиле</h3>
-          <div class="reels" style="margin-top:18px">
-            <a href="https://www.instagram.com/p/DT91K_7DO3F/" target="_blank" rel="noopener">instagram.com/p/DT91K_7DO3F</a>
-            <a href="https://www.instagram.com/reel/DV8JALHCOvr/" target="_blank" rel="noopener">instagram.com/reel/DV8JALHCOvr</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="photo tall">
-      <img src="img/type-3-trend.png" alt="Видео генерации в трендовом стиле" />
-    </div>
-  </div>
-</section>
-
-<!-- 8. TYPE 4 -->
-<section class="slide">
-  <div class="wrap grid-2 flip">
-    <div class="photo tall">
-      <img src="img/type-4-ar.png" alt="Видео дополненной реальности" />
-    </div>
-    <div>
-      <div class="eyebrow">Тип контента · 04</div>
-      <div class="types">
-        <div class="num">04</div>
-        <div>
-          <h3>Видео дополненной реальности</h3>
-          <p style="margin-top:16px">Видео дополненной реальности объект дорабатывается с ИИ</p>
-          <div class="reels">
-            <a href="https://www.instagram.com/reel/DV_FhR1Dt4G/" target="_blank" rel="noopener">instagram.com/reel/DV_FhR1Dt4G</a>
-            <a href="https://www.instagram.com/reel/DV9QkxlEo2v/" target="_blank" rel="noopener">instagram.com/reel/DV9QkxlEo2v</a>
-            <a href="https://www.instagram.com/reel/DR5ART8j4Mp/" target="_blank" rel="noopener">instagram.com/reel/DR5ART8j4Mp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 9. SPECIALS -->
+<!-- 3. 4 ТИПА ВИДЕО + СПЕЦПРОЕКТЫ -->
 <section class="slide">
   <div class="wrap">
-    <div class="eyebrow">Спецпроекты</div>
-    <h2>А&nbsp;так&nbsp;же спецпроекты</h2>
+    <div class="eyebrow">Из чего состоит съёмка</div>
+    <h2>Четыре типа роликов</h2>
     <div class="divider"></div>
-    <div class="pills">
-      <span class="pill">селебрити</span>
-      <span class="pill">интервью</span>
-      <span class="pill">подкасты</span>
-      <span class="pill">асмр</span>
+    <div class="types-grid">
+      <div class="type-card">
+        <div class="n">01</div>
+        <h4>Автор в&nbsp;кадре</h4>
+        <p>Короткие ролики по готовым сценариям с цепляющим началом. Автор проекта говорит коротко и по делу.</p>
+      </div>
+      <div class="type-card">
+        <div class="n">02</div>
+        <h4>Видео-обзор объекта</h4>
+        <p>Динамичная съёмка всего дома: фасад, входная группа, патио, интерьер. Показываем дом так, как его видит хозяин.</p>
+      </div>
+      <div class="type-card">
+        <div class="n">03</div>
+        <h4>Ролики в&nbsp;популярном стиле</h4>
+        <p>Подача в актуальном для соцсетей формате — чтобы видео расходилось и приводило заинтересованных покупателей.</p>
+      </div>
+      <div class="type-card">
+        <div class="n">04</div>
+        <h4>Видео с&nbsp;искусственным интеллектом</h4>
+        <p>Прямо на голом бетоне гостиной плавно «проявляется» готовая мебель и отделка из дизайн-проекта.</p>
+      </div>
     </div>
-    <p style="margin-top:28px">полноценные видео для ютуба 30&nbsp;мин+</p>
+    <div class="specials">
+      <div class="label">А также спецпроекты</div>
+      <div class="pills">
+        <span class="pill">интервью</span>
+        <span class="pill">подкасты</span>
+        <span class="pill">звуковые ролики</span>
+        <span class="pill">полные видео для Ютуба от&nbsp;30&nbsp;минут</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 10. PACKAGES INTRO -->
+<!-- 4. ТРИ ПАКЕТА — обзор -->
 <section class="slide dark">
   <div class="wrap">
     <div class="eyebrow" style="color:#d6b48a">Состав предложения</div>
-    <h2 style="max-width: 24ch">НИЖЕ ПРЕДЛАГАЕМ ТРИ&nbsp;ПАКЕТА ДЛЯ&nbsp;ОБСУЖДЕНИЯ.</h2>
-    <p class="lead" style="color:var(--dark-muted); margin-top: 28px">В процессе можно собрать решение в любой комбинации.</p>
-    <div class="stages" style="margin-top:56px">
-      <div class="stage" style="border-top-color:var(--accent); grid-column: span 1">
+    <h2>Три пакета на&nbsp;выбор</h2>
+    <p class="lead" style="color:var(--dark-muted); margin-top: 20px">Подходы можно комбинировать — собрать решение под цель и бюджет.</p>
+    <div class="stages" style="margin-top:40px">
+      <div class="stage" style="border-top-color:var(--accent)">
         <div class="stage-no">Пакет 1</div>
-        <h4>Быстрый инструмент привлечения</h4>
+        <h4 style="color:#fff">Быстрый запуск</h4>
+        <p style="color:var(--dark-muted)">10 коротких видео + сайт-страница со связью в Телеграм.</p>
       </div>
-      <div class="stage" style="border-top-color:var(--accent); grid-column: span 1">
+      <div class="stage" style="border-top-color:var(--accent)">
         <div class="stage-no">Пакет 2</div>
-        <h4>Технический и&nbsp;юридический аудит</h4>
+        <h4 style="color:#fff">Технический и&nbsp;юридический разбор</h4>
+        <p style="color:var(--dark-muted)">Всё из пакета 1 + большой обзор для Ютуба, экспертные ролики, проходы по интерьеру.</p>
       </div>
-      <div class="stage" style="border-top-color:var(--accent); grid-column: span 1">
+      <div class="stage" style="border-top-color:var(--accent)">
         <div class="stage-no">Пакет 3</div>
-        <h4>Инвестиционный манифест</h4>
+        <h4 style="color:#fff">Инвестиционный манифест</h4>
+        <p style="color:var(--dark-muted)">Всё из пакета 2 + звуковая серия, обзор посёлка, закрытый видео-разговор для финального решения.</p>
       </div>
       <div class="stage" style="border-top-color:var(--dark-line)">
-        <div class="stage-no" style="color:var(--dark-muted)">Комбинация</div>
-        <h4 style="color:var(--dark-muted)">Гибкая сборка под цель и&nbsp;бюджет</h4>
+        <div class="stage-no" style="color:var(--dark-muted)">Гибкая сборка</div>
+        <h4 style="color:var(--dark-muted)">Любая комбинация под задачу</h4>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 11. PACKAGE 1 -->
+<!-- 5. ПАКЕТ 1 -->
 <section class="slide">
-  <div class="wrap">
-    <div class="pkg-tag">Пакет 1</div>
-    <h2>«БЫСТРЫЙ ИНСТРУМЕНТ ПРИВЛЕЧЕНИЯ»</h2>
-    <div class="divider"></div>
-    <div class="callout">Цель: привлечь внимание покупателей элитной недвижимости и вывести их на разговор.</div>
-
-    <div style="margin-top:32px">
-      <div class="feat">
-        <div class="feat-label">Что снимаем</div>
-        <div class="feat-body">10 коротких вертикальных видео-обзоров со спикером.</div>
+  <div class="wrap pkg-layout">
+    <div>
+      <div class="pkg-tag">Пакет 1</div>
+      <h2>«БЫСТРЫЙ ИНСТРУМЕНТ ПРИВЛЕЧЕНИЯ»</h2>
+      <div class="divider"></div>
+      <div class="callout">Цель: привлечь внимание покупателей элитной недвижимости и вывести их на разговор.</div>
+      <div style="margin-top:24px">
+        <div class="feat">
+          <div class="feat-label">Что снимаем</div>
+          <div class="feat-body">10 коротких вертикальных видео-обзоров с автором проекта.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-label">Что делает искусственный интеллект</div>
+          <div class="feat-body">На голом бетоне гостиной плавно «проявляется» готовая мебель и отделка прямо во время движения камеры.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-label">Куда ведём покупателя</div>
+          <div class="feat-body">Простая сайт-страница со встроенным переключателем «Было / Станет» и кнопкой, по которой покупатель сразу пишет продавцу в Телеграм.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-label">Пример страницы</div>
+          <div class="feat-body"><a href="https://sshtukaturov11-cloud.github.io/brekhovo-landing/" target="_blank" rel="noopener">sshtukaturov11-cloud.github.io/brekhovo-landing</a></div>
+        </div>
       </div>
-      <div class="feat">
-        <div class="feat-label">Что делает искусственный интеллект</div>
-        <div class="feat-body">Прямо во время движения камеры на голом бетоне гостиной плавно «проявляется» готовая мебель и отделка из дизайн-проекта.</div>
-      </div>
-      <div class="feat">
-        <div class="feat-label">Куда ведём покупателя</div>
-        <div class="feat-body">Простая страница-сайт со встроенным слайдером «Было / Станет» и кнопкой, по которой покупатель сразу пишет продавцу в Телеграм.</div>
-      </div>
-      <div class="feat">
-        <div class="feat-label">Эскиз страницы</div>
-        <div class="feat-body"><a href="https://sshtukaturov11-cloud.github.io/brekhovo-landing/" target="_blank" rel="noopener">sshtukaturov11-cloud.github.io/brekhovo-landing</a></div>
+    </div>
+    <div>
+      <div class="photo tall">
+        <img src="img/house-p4.jpg" alt="Особняк в посёлке Синергия — входная группа" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- 12. PACKAGE 2 -->
+<!-- 6. ПАКЕТ 2 -->
 <section class="slide">
-  <div class="wrap">
-    <div class="pkg-tag">Пакет 2</div>
-    <h2>«ТЕХНИЧЕСКИЙ И&nbsp;ЮРИДИЧЕСКИЙ АУДИТ»</h2>
-    <div class="divider"></div>
-    <div class="callout">Снимаем страхи рассудительных покупателей перед скрытыми дефектами стройки и юридическими рисками.</div>
-
-    <div style="margin-top:32px">
-      <div class="feat">
-        <div class="feat-label">Что входит</div>
-        <div class="feat-body">Всё из ПАКЕТА 1.</div>
+  <div class="wrap pkg-layout">
+    <div>
+      <div class="pkg-tag">Пакет 2</div>
+      <h2>«ТЕХНИЧЕСКИЙ И&nbsp;ЮРИДИЧЕСКИЙ РАЗБОР»</h2>
+      <div class="divider"></div>
+      <div class="callout">Снимаем страхи рассудительных покупателей перед скрытыми дефектами стройки и юридическими рисками.</div>
+      <div style="margin-top:24px">
+        <div class="feat">
+          <div class="feat-label">Что входит</div>
+          <div class="feat-body">Всё из ПАКЕТА 1.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-label">Большой видео-обзор для&nbsp;Ютуба «100 миллионов под&nbsp;микроскопом» (5–10 минут)</div>
+          <div class="feat-body">Илья с тепловизором и лазерным сканером показывает геометрию монолита и герметичность остекления без швов. Андрей в этом же видео разбирает документы: статус земли (индивидуальное жилищное строительство), подключённые коммуникации (газ, электричество).</div>
+        </div>
+        <div class="feat">
+          <div class="feat-label">10 коротких экспертных вертикальных видео</div>
+          <div class="feat-body">Подробно отвечаем на страхи покупателя: как ведёт себя плоская кровля в подмосковные снегопады, насколько долговечны австрийские керамические блоки.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-label">Видео-проходы по&nbsp;интерьеру</div>
+          <div class="feat-body">Плавные проходы камерой сквозь дверные проёмы, чтобы покупатель физически почувствовал масштаб потолков высотой 4,5 метра.</div>
+        </div>
       </div>
-      <div class="feat">
-        <div class="feat-label">Большой видео-обзор для&nbsp;Ютуба «100&nbsp;миллионов под&nbsp;микроскопом» (5–10&nbsp;минут)</div>
-        <div class="feat-body">Илья с тепловизором и лазерным сканером показывает идеальную геометрию монолита и герметичность остекления без швов. Андрей в этом же видео разбирает документы: статус земли (индивидуальное жилищное строительство), подключённые коммуникации (магистральный газ, электричество).</div>
-      </div>
-      <div class="feat">
-        <div class="feat-label">10 коротких экспертных вертикальных видео</div>
-        <div class="feat-body">Подробно отвечаем на страхи покупателя: как ведёт себя плоская кровля в подмосковные снегопады, насколько долговечны австрийские керамические блоки и т. д.</div>
-      </div>
-      <div class="feat">
-        <div class="feat-label">Видео-проходы по&nbsp;интерьеру</div>
-        <div class="feat-body">Плавные проходы камерой сквозь дверные проёмы, чтобы покупатель физически почувствовал масштаб потолков высотой 4,5 метра.</div>
+    </div>
+    <div>
+      <div class="photo tall">
+        <img src="img/house-p7.jpg" alt="Особняк в посёлке Синергия — боковой фасад" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- 13. PACKAGE 3 — overview + content base -->
+<!-- 7. ПАКЕТ 3 -->
 <section class="slide dark">
   <div class="wrap">
     <div class="pkg-tag">Пакет 3</div>
     <h2>«ИНВЕСТИЦИОННЫЙ МАНИФЕСТ»</h2>
     <div class="divider" style="background:var(--accent)"></div>
-    <div class="callout">Делаем из дома статусный, трофейный актив для крупных инвесторов.</div>
+    <div class="callout">Делаем из дома статусный, коллекционный объект для крупных инвесторов.</div>
 
-    <div style="margin-top:32px">
+    <div style="margin-top:24px">
       <div class="feat">
         <div class="feat-label">Что входит</div>
-        <div class="feat-body">Всё из ПАКЕТА 2 + звуковой сериал (ASMR) «Тишина Синергии» (звуки природы, хруст гравия, эхо шагов) + видео-тест-драйв инфраструктуры посёлка (качество дорог, частные школы, вертолётная площадка поблизости).</div>
+        <div class="feat-body">Всё из ПАКЕТА 2 + звуковая серия «Тишина Синергии» (звуки природы, хруст гравия, эхо шагов) + поездка по инфраструктуре посёлка (качество дорог, частные школы, вертолётная площадка поблизости).</div>
       </div>
-      <div class="feat">
-        <div class="feat-label">Пример</div>
-        <div class="feat-body"><a href="https://www.instagram.com/reel/Cv-C_roodYI/" target="_blank" rel="noopener">instagram.com/reel/Cv-C_roodYI</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 13b. PACKAGE 3 — references images -->
-<section class="slide">
-  <div class="wrap">
-    <div class="eyebrow">Пакет 3 · референсы</div>
-    <div class="pair" style="margin-top:24px">
-      <div class="photo wide"><img src="img/pkg3-a.png" alt="Референс 1" /></div>
-      <div class="photo wide"><img src="img/pkg3-b.png" alt="Референс 2" /></div>
-    </div>
-  </div>
-</section>
-
-<!-- 13c. PACKAGE 3 — closing + promotion -->
-<section class="slide">
-  <div class="wrap">
-    <div class="pkg-tag">Пакет 3 · инструменты</div>
-    <h3>Закрытие сделки и&nbsp;продвижение</h3>
-    <div class="divider"></div>
-    <div style="margin-top:8px">
       <div class="feat">
         <div class="feat-label">Что помогает закрыть сделку</div>
-        <div class="feat-body">Закрытый 10-минутный видео-подкаст «Один на один с создателями». Отправляем его лично сомневающимся клиентам высокого уровня, чтобы помочь принять решение.</div>
+        <div class="feat-body">Закрытый 10-минутный видео-разговор «Один на один с создателями» — отправляем его лично сомневающимся клиентам высокого уровня, чтобы помочь принять решение.</div>
       </div>
       <div class="feat">
         <div class="feat-label">Продвижение</div>
-        <div class="feat-body">Рекламные публикации в закрытых Телеграм-каналах для инвесторов и предпринимателей, а также точечная реклама по аудитории Новой Риги и Рублёвки.</div>
+        <div class="feat-body">Публикации в закрытых Телеграм-каналах для инвесторов и предпринимателей, а также точечная реклама по аудитории Новой Риги и Рублёвки.</div>
       </div>
+    </div>
+
+    <div class="pair">
+      <div class="photo wide"><img src="img/house-p28.jpg" alt="Особняк в посёлке Синергия — вечернее освещение, патио" /></div>
+      <div class="photo wide"><img src="img/house-p30.jpg" alt="Особняк в посёлке Синергия — вечернее освещение, общий вид" /></div>
     </div>
   </div>
 </section>
 
-<!-- 14. IMPLEMENTATION PLAN -->
+<!-- 8. ПЛАН РАБОТЫ -->
 <section class="slide">
   <div class="wrap">
     <div class="eyebrow">План работы</div>
-    <h2>КРАТКИЙ ПЛАН РЕАЛИЗАЦИИ ПО&nbsp;ШАГАМ</h2>
+    <h2>Краткий план по&nbsp;шагам</h2>
     <div class="divider"></div>
-    <p class="lead">Делим всю работу на чёткие, контролируемые отрезки:</p>
-
+    <p class="lead">Делим всю работу на чёткие, контролируемые отрезки.</p>
     <div class="stages">
       <div class="stage">
         <div class="stage-no">Этап 1 · 7–10 дней</div>
         <h4>Подготовка</h4>
-        <p style="margin-top:8px">Пишем сценарии (совместные темы для Ильи и Андрея). Готовим сайт на платформе Гитхаб, делаем слайдер «Было / Станет».</p>
+        <p>Пишем сценарии (совместные темы для Ильи и Андрея). Готовим сайт-страницу, делаем переключатель «Было / Станет».</p>
       </div>
       <div class="stage">
         <div class="stage-no">Этап 2 · Дни 11–12</div>
         <h4>Съёмка</h4>
-        <p style="margin-top:8px">Двухдневные съёмки в посёлке Синергия с профессиональным кино-светом и интерьерными дронами. Запись чистого, плотного звука на петличные микрофоны.</p>
+        <p>Двухдневные съёмки в посёлке Синергия с кино-светом и интерьерными дронами. Запись чистого звука на петличные микрофоны.</p>
       </div>
       <div class="stage">
-        <div class="stage-no">Этап 3 · Дни 7–10</div>
+        <div class="stage-no">Этап 3 · Дни 13–22</div>
         <h4>Монтаж и&nbsp;запуск</h4>
-        <p style="margin-top:8px">Видеомонтаж с помощью искусственного интеллекта (рендеры дизайн-проекта аккуратно «вплавляем» в реальный бетон). Цветокоррекция. Настройка автоматического чат-бота в соцсетях. Запуск первой волны видео для сбора заявок.</p>
+        <p>Видеомонтаж с помощью искусственного интеллекта — рендеры дизайн-проекта аккуратно «вплавляем» в реальный бетон. Цветокоррекция. Запуск первой волны видео.</p>
       </div>
       <div class="stage">
-        <div class="stage-no">Этап 4 · Дни 11–30</div>
-        <h4>Публикации и&nbsp;продвижение</h4>
-        <p style="margin-top:8px">Ежедневный выход материалов, анализ того, как зрители досматривают ролики, запуск рекламных публикаций.</p>
+        <div class="stage-no">Этап 4 · Дни 23–52</div>
+        <h4>Публикации</h4>
+        <p>Ежедневный выход материалов, анализ досматриваемости роликов, запуск рекламных публикаций.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 15. PRICING TABLE -->
+<!-- 9. ТАБЛИЦА СТОИМОСТИ -->
 <section class="slide">
   <div class="pricing-wrap">
-    <div class="eyebrow" style="margin-bottom:18px">Таблица примерной производственной стоимости тарифов</div>
+    <div class="eyebrow" style="margin-bottom:14px">Таблица примерной производственной стоимости</div>
     <div class="pricing-img">
-      <img src="img/pricing.png" alt="Таблица примерной производственной стоимости тарифов" />
+      <img src="img/pricing.jpg" alt="Таблица примерной производственной стоимости тарифов" />
     </div>
   </div>
 </section>
 
-<!-- 16. THANKS -->
+<!-- 10. КОМАНДА -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow">О ком речь</div>
+    <h2>Команда проекта</h2>
+    <div class="divider"></div>
+
+    <div class="team">
+      <div class="person">
+        <div class="avatar"><img src="img/ilya.jpg" alt="Илья" /></div>
+        <div>
+          <h4>Илья</h4>
+          <div class="role">Автор проекта · архитектор</div>
+          <p>Спроектировал особняк в посёлке Синергия. В видео рассказывает о решениях, материалах и конструктиве — без рекламных оборотов, по делу.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar placeholder">А</div>
+        <div>
+          <h4>Андрей</h4>
+          <div class="role">Специалист по&nbsp;недвижимости</div>
+          <p>Практик в сегменте элитной недвижимости Подмосковья. В видео отвечает на вопросы покупателя о документах, юридической чистоте, эксплуатации.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. THANKS -->
 <section class="slide thanks">
   <div class="wrap">
     <h1>СПАСИБО</h1>
@@ -749,8 +646,7 @@
   const total = slides.length;
   function pad(n){return String(n).padStart(2,'0')}
   function update(){
-    const y = window.scrollY;
-    const h = window.innerHeight;
+    const y = window.scrollY, h = window.innerHeight;
     let idx = Math.round(y / h) + 1;
     if(idx < 1) idx = 1;
     if(idx > total) idx = total;
@@ -762,8 +658,6 @@
   document.addEventListener('scroll', update, {passive:true});
   window.addEventListener('resize', update);
   update();
-
-  // Arrow keys navigation
   document.addEventListener('keydown', (e) => {
     const h = window.innerHeight;
     const cur = Math.round(window.scrollY / h);
