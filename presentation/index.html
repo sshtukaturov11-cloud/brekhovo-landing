@@ -173,6 +173,16 @@
   }
   .type-card h4{margin-bottom: 10px; font-family:'Manrope',sans-serif; font-weight:600}
   .type-card p{font-size: clamp(14px,1vw,16px); color:var(--ink-2)}
+  .reels{margin-top: 12px; display:flex; flex-direction:column; gap:5px}
+  .reels a{
+    font-size: clamp(12px,.85vw,14px);
+    color:var(--muted);
+    border-bottom:1px dashed var(--line);
+    word-break:break-all;
+    width:fit-content;
+    padding-bottom:1px;
+  }
+  .reels a:hover{color:var(--accent); border-color:var(--accent)}
 
   .specials{
     margin-top: 36px;
@@ -356,7 +366,7 @@
 
 <div class="progress"><div class="progress-bar" id="pbar"></div></div>
 <div class="brandmark">Синергия · КП</div>
-<div class="counter" id="counter">01 / 11</div>
+<div class="counter" id="counter">01 / 10</div>
 
 <!-- 1. HERO — без человека, чистый рендер дома -->
 <section class="slide hero">
@@ -402,21 +412,38 @@
         <div class="n">01</div>
         <h4>Автор в&nbsp;кадре</h4>
         <p>Короткие ролики по готовым сценариям с цепляющим началом. Автор проекта говорит коротко и по делу.</p>
+        <div class="reels">
+          <a href="https://www.instagram.com/reel/DXon6vXh_Ej/" target="_blank" rel="noopener">instagram.com/reel/DXon6vXh_Ej</a>
+          <a href="https://www.instagram.com/reel/DX6w783vaK-/" target="_blank" rel="noopener">instagram.com/reel/DX6w783vaK-</a>
+        </div>
       </div>
       <div class="type-card">
         <div class="n">02</div>
         <h4>Видео-обзор объекта</h4>
         <p>Динамичная съёмка всего дома: фасад, входная группа, патио, интерьер. Показываем дом так, как его видит хозяин.</p>
+        <div class="reels">
+          <a href="https://www.instagram.com/reel/DW1gQZbACz-/" target="_blank" rel="noopener">instagram.com/reel/DW1gQZbACz-</a>
+          <a href="https://www.instagram.com/reel/DWUMfKAgGTB/" target="_blank" rel="noopener">instagram.com/reel/DWUMfKAgGTB</a>
+        </div>
       </div>
       <div class="type-card">
         <div class="n">03</div>
         <h4>Ролики в&nbsp;популярном стиле</h4>
         <p>Подача в актуальном для соцсетей формате — чтобы видео расходилось и приводило заинтересованных покупателей.</p>
+        <div class="reels">
+          <a href="https://www.instagram.com/p/DT91K_7DO3F/" target="_blank" rel="noopener">instagram.com/p/DT91K_7DO3F</a>
+          <a href="https://www.instagram.com/reel/DV8JALHCOvr/" target="_blank" rel="noopener">instagram.com/reel/DV8JALHCOvr</a>
+        </div>
       </div>
       <div class="type-card">
         <div class="n">04</div>
         <h4>Видео с&nbsp;искусственным интеллектом</h4>
         <p>Прямо на голом бетоне гостиной плавно «проявляется» готовая мебель и отделка из дизайн-проекта.</p>
+        <div class="reels">
+          <a href="https://www.instagram.com/reel/DV_FhR1Dt4G/" target="_blank" rel="noopener">instagram.com/reel/DV_FhR1Dt4G</a>
+          <a href="https://www.instagram.com/reel/DV9QkxlEo2v/" target="_blank" rel="noopener">instagram.com/reel/DV9QkxlEo2v</a>
+          <a href="https://www.instagram.com/reel/DR5ART8j4Mp/" target="_blank" rel="noopener">instagram.com/reel/DR5ART8j4Mp</a>
+        </div>
       </div>
     </div>
     <div class="specials">
@@ -552,6 +579,10 @@
         <div class="feat-label">Продвижение</div>
         <div class="feat-body">Публикации в закрытых Телеграм-каналах для инвесторов и предпринимателей, а также точечная реклама по аудитории Новой Риги и Рублёвки.</div>
       </div>
+      <div class="feat">
+        <div class="feat-label">Пример</div>
+        <div class="feat-body"><a href="https://www.instagram.com/reel/Cv-C_roodYI/" target="_blank" rel="noopener">instagram.com/reel/Cv-C_roodYI</a></div>
+      </div>
     </div>
 
     <div class="pair">
@@ -603,35 +634,7 @@
   </div>
 </section>
 
-<!-- 10. КОМАНДА -->
-<section class="slide">
-  <div class="wrap">
-    <div class="eyebrow">О ком речь</div>
-    <h2>Команда проекта</h2>
-    <div class="divider"></div>
-
-    <div class="team">
-      <div class="person">
-        <div class="avatar"><img src="img/ilya.jpg" alt="Илья" /></div>
-        <div>
-          <h4>Илья</h4>
-          <div class="role">Автор проекта · архитектор</div>
-          <p>Спроектировал особняк в посёлке Синергия. В видео рассказывает о решениях, материалах и конструктиве — без рекламных оборотов, по делу.</p>
-        </div>
-      </div>
-      <div class="person">
-        <div class="avatar placeholder">А</div>
-        <div>
-          <h4>Андрей</h4>
-          <div class="role">Специалист по&nbsp;недвижимости</div>
-          <p>Практик в сегменте элитной недвижимости Подмосковья. В видео отвечает на вопросы покупателя о документах, юридической чистоте, эксплуатации.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 11. THANKS -->
+<!-- THANKS -->
 <section class="slide thanks">
   <div class="wrap">
     <h1>СПАСИБО</h1>
